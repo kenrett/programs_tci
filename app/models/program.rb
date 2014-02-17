@@ -1,4 +1,4 @@
 class Program < ActiveRecord::Base
   validates_presence_of :title, :subtitle, :code
-  validates_length_of :code, :maximum => 6, too_long: "is too long (maximum is 6 characters)"
+  validates_length_of :code, is: 6, message: "is the wrong length (should be 6 characters)"
 end
