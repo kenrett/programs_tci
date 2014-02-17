@@ -12,7 +12,7 @@ gem 'capybara'
 
 gem 'selenium-webdriver'
 
-gem 'factory_girl_rails'
+gem 'factory_girl'
 
 gem 'sass-rails', '~> 4.0.0'
 

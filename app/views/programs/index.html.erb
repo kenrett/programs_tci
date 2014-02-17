@@ -1,0 +1,5 @@
+<h1>List of All Programs</h1>
+
+<% @programs.each do |program| %>
+  <h3><%= link_to program.title, program %></h3>
+<% end %>
