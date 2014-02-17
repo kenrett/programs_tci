@@ -1,4 +1,4 @@
 ProgramTci::Application.routes.draw do
-  resources :programs
+  resources :programs, only: [:index, :show]
   root 'programs#index'
 end
