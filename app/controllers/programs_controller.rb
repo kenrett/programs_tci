@@ -28,7 +28,11 @@ class ProgramsController < ApplicationController
   def update
     @program = Program.find(params[:id])
     @program.update_attributes(program_params)
-    redirect_to @program
+    if @program.save
+      redirect_to @program
+    else
+      render :edit
+    end
   end
 
   def destroy

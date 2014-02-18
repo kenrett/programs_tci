@@ -91,4 +91,10 @@ describe 'A user visiting the edit page' do
     click_button('Submit')
     expect(page).to have_content("TeachTCI")
   end
+
+  it "cannot update a program without a title" do
+    fill_in 'Title', with: ''
+    click_button('Submit')
+    expect(page).to have_content("Title can't be blank")
+  end
 end
