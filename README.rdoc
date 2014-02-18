@@ -1,5 +1,7 @@
 A Simple Rails app to add Programs to a list, created using strict TDD.
 
+The app also utilizes guard and zeus.
+
 Run "rake db:seed" to have example data to work with.
 
 A Program has following attributes (all required):
