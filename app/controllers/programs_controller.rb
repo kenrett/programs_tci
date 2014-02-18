@@ -22,7 +22,13 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-   
+    @program = Program.find(params[:id])
+  end
+
+  def update
+    @program = Program.find(params[:id])
+    @program.update_attributes(program_params)
+    redirect_to @program
   end
 
   def destroy

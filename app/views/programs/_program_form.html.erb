@@ -1,0 +1,20 @@
+  <%= form_for @program do |f| %>
+    <% if @program.errors.full_messages.present? %>
+      <% @program.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    <% end %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :subtitle %>
+    <%= f.text_field :subtitle %>
+  </p>
+  <p>
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </p>
+  <%= f.submit "Submit" %>
+<% end %>

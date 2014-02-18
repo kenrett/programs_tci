@@ -52,7 +52,7 @@ describe 'A user visiting the new page', js: true do
     fill_in 'Title', with: 'TCI'
     fill_in 'Subtitle', with: 'rocks'
     fill_in 'Code', with: '123456'
-    click_button 'Create New Program'
+    click_button 'Submit'
 
     expect(page).to have_content('List of All Programs')
     expect(page).to have_content('TCI')
@@ -60,27 +60,35 @@ describe 'A user visiting the new page', js: true do
 
   it 'cannot create a program with an incorrect code' do
     fill_in 'Code', with: '1234567'
-    click_button 'Create New Program'
+    click_button 'Submit'
     expect(page).to have_content('Code is the wrong length (should be 6 characters)')
   end
 
   it 'cannot create a program without a title' do
     fill_in 'Subtitle', with: 'rocks'
     fill_in 'Code', with: '123456'
-    click_button 'Create New Program'
+    click_button 'Submit'
     expect(page).to have_content("Title can't be blank")
   end
 
   it 'cannot create a program without a title' do
     fill_in 'Title', with: 'TCI'
     fill_in 'Code', with: '123456'
-    click_button 'Create New Program'
+    click_button 'Submit'
     expect(page).to have_content("Subtitle can't be blank")
   end
 end
 
 describe 'A user visiting the edit page' do
+  let(:program){ create(:program, title: 'TCI', subtitle: 'rocks') }
+
   before :each do 
-    visit edit_program_path
+    visit edit_program_path(program)
+  end
+
+  it "can edit a program's title" do
+    fill_in 'Title', with: 'TeachTCI'
+    click_button('Submit')
+    expect(page).to have_content("TeachTCI")
   end
 end
