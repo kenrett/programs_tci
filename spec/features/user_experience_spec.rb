@@ -42,3 +42,25 @@ describe 'A user visiting the show page', js: true do
     expect(page).to_not have_content('TCI')
   end
 end
+
+describe 'A user visiting the new page', js: true do
+  before :each do 
+    visit new_program_path
+    fill_in 'Title', with: 'TCI'
+    fill_in 'Subtitle', with: 'rocks'
+  end
+    
+  it 'can create a new user' do
+    fill_in 'Code', with: '123456'
+    click_button 'Create New Program'
+
+    expect(page).to have_content('List of All Programs')
+    expect(page).to have_content('TCI')
+  end
+
+  it 'cannot create a program with an incorrect code' do
+    fill_in 'Code', with: '1234567'
+    click_button 'Create New Program'
+    expect(page).to have_content('Error, code must be 6 characters')
+  end
+end
