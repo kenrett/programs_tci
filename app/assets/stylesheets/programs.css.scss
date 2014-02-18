@@ -1,0 +1,39 @@
+.center-box {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 1em;
+    text-decoration: underline;
+  }
+
+  #programs {
+    border-top: 2px solid black;
+
+  }
+
+  #create-button {
+    margin-top: 3em;
+  }
+}
+
+li {
+  color: red;
+  list-style-type: none;
+}
+
+.form {
+  text-align: center;
+}
+
+.notice {
+  font-weight: bold;
+  font-size: 200%;
+  color: red;
+  border: 2px solid black;
+  text-align: center;
+}
+
+#new {
+  text-align: center;
+  // margin-left: 3em;
+}

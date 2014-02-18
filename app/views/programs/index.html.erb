@@ -1,9 +1,12 @@
-<h1>List of All Programs</h1>
+<div class='center-box'>
+  <h1>List of All Programs</h1>
+  <div id='programs'>
+    <% @programs.each do |program| %>
+      <h3><%= link_to program.title, program %></h3>
+    <% end %>
 
-<% @programs.each do |program| %>
-  <h3><%= link_to program.title, program %></h3>
-<% end %>
-
-<%= link_to new_program_path do %>
-  <button>Create a new program</button>
-<% end %>
+    <%= link_to new_program_path do %>
+  </div>
+      <button id='create-button'>Create a new program</button>
+    <% end %>
+</div>
