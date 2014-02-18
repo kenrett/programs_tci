@@ -25,8 +25,7 @@ class ProgramsController < ApplicationController
   end
 
   def update
-    @program.update_attributes(program_params) #handle errors
-    if @program.save # update_attributes
+    if @program.update_attributes(program_params) #handle errors
       redirect_to @program
     else
       render :edit, notice: 'Program updated successfully'
@@ -35,7 +34,7 @@ class ProgramsController < ApplicationController
 
   def destroy
     Program.destroy(params[:id])
-    flash[:notice] = 'Boom, son!'
+    flash[:notice] = 'Program destroyed'
     redirect_to root_path
   end
 
