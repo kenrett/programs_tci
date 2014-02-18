@@ -2,6 +2,6 @@
 <h3><%= @program.subtitle %></h3>
 <p> <%= @program.code %> </p>
 
-<%= link_to 'Edit Program', edit_program_path %>
-<%= link_to "Delete Program", @program, method: :delete %>
+<%= link_to 'Edit Program', edit_program_path %><br>
+<%= link_to 'Delete Program', @program, method: :delete %><br>
 <%= link_to 'Return Home', root_path %>
