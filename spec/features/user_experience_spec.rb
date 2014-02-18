@@ -78,3 +78,9 @@ describe 'A user visiting the new page', js: true do
     expect(page).to have_content("Subtitle can't be blank")
   end
 end
+
+describe 'A user visiting the edit page' do
+  before :each do 
+    visit edit_program_path
+  end
+end
