@@ -15,4 +15,9 @@ class ProgramsController < ApplicationController
   def edit
    
   end
+
+  def destroy
+    Program.destroy(params[:id])
+    redirect_to root_path
+  end
 end

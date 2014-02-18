@@ -35,4 +35,10 @@ describe 'A user visiting the show page', js: true do
     click_link('Edit Program')
     expect(page).to have_content('Update Program')
   end
+
+  it 'can delete current program' do
+    visit program_path(program)
+    click_link('Delete Program')
+    expect(page).to_not have_content('TCI')
+  end
 end
