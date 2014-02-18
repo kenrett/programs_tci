@@ -110,3 +110,9 @@ describe 'A user visiting the edit page' do
     expect(page).to have_content('Code is the wrong length (should be 6 characters)')
   end
 end
+
+describe 'A user visiting a url that does not exist' do
+  it 'should get a Not Found error (404)' do
+    expect(lambda { visit '/programs/1234124' }).to raise_error(ActionController::RoutingError)
+  end
+end

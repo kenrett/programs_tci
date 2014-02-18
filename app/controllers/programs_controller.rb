@@ -45,6 +45,7 @@ class ProgramsController < ApplicationController
   end
 
   def get_program
-    @program = Program.find(params[:id])
+    @program = Program.find_by(id: params[:id])
+    not_found unless @program
   end
 end
