@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'a user visiting the homepage', js: true do
+describe 'A user visiting the homepage', js: true do
   let!(:program){ create(:program, title: 'TCI', subtitle: 'rocks') }
 
   it 'sees a list of all programs' do
@@ -20,4 +20,19 @@ describe 'a user visiting the homepage', js: true do
     expect(page).to have_content('Create New Program')
   end 
 end
-  
+
+describe 'A user visiting the show page', js: true do
+  let(:program){ create(:program, title: 'TCI', subtitle: 'rocks') }
+
+  it 'can return to the homepage' do
+    visit program_path(program)
+    click_link('Return Home')
+    expect(page).to have_content('TCI')
+  end
+
+  it 'can edit current program' do
+    visit program_path(program)
+    click_link('Edit Program')
+    expect(page).to have_content('Update Program')
+  end
+end
