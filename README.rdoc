@@ -1,10 +1,10 @@
 A Simple Rails app to add Programs to a list, created using strict TDD.
 
-Run `rake db:seed` to have example data to work with.
+Run "rake db:seed" to have example data to work with.
 
 A Program has following attributes (all required):
-  - Title
-  - Subtitle
-  - Code (6 chars)
+- Title
+- Subtitle
+- Code (6 chars)
    
 A user can add/edit/list/destroy programs. 
