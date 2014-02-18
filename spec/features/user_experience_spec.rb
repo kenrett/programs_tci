@@ -97,4 +97,16 @@ describe 'A user visiting the edit page' do
     click_button('Submit')
     expect(page).to have_content("Title can't be blank")
   end
+
+  it "cannot update a program without a subtitle" do
+    fill_in 'Subtitle', with: ''
+    click_button('Submit')
+    expect(page).to have_content("Subtitle can't be blank")
+  end
+
+  it "cannot update a program with an invalid code" do
+    fill_in 'Code', with: '1234567'
+    click_button('Submit')
+    expect(page).to have_content('Code is the wrong length (should be 6 characters)')
+  end
 end
