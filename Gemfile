@@ -4,36 +4,30 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.2'
 
+gem 'coffee-rails', '~> 4.0.0'
+gem 'jbuilder', '~> 1.2'
+gem 'jquery-rails'
 gem 'pg'
-
-gem 'database_cleaner'
-
-gem 'pry-rails'
-
-gem 'capybara'
-
-gem 'selenium-webdriver'
-
-gem 'factory_girl'
-
 gem 'sass-rails', '~> 4.0.0'
-
+gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'coffee-rails', '~> 4.0.0'
-
-gem 'jquery-rails'
-
-gem 'turbolinks'
-
-gem 'jbuilder', '~> 1.2'
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
+  gem 'rspec-rails'
+end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
+  gem 'guard'
+  gem 'guard-rspec', require: false
+  gem 'pry-rails'
+  # gem 'zeus'
 end
 
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
