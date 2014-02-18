@@ -46,11 +46,11 @@ end
 describe 'A user visiting the new page', js: true do
   before :each do 
     visit new_program_path
-    fill_in 'Title', with: 'TCI'
-    fill_in 'Subtitle', with: 'rocks'
   end
     
   it 'can create a new user' do
+    fill_in 'Title', with: 'TCI'
+    fill_in 'Subtitle', with: 'rocks'
     fill_in 'Code', with: '123456'
     click_button 'Create New Program'
 
@@ -61,6 +61,20 @@ describe 'A user visiting the new page', js: true do
   it 'cannot create a program with an incorrect code' do
     fill_in 'Code', with: '1234567'
     click_button 'Create New Program'
-    expect(page).to have_content('Error, code must be 6 characters')
+    expect(page).to have_content('Code is the wrong length (should be 6 characters)')
+  end
+
+  it 'cannot create a program without a title' do
+    fill_in 'Subtitle', with: 'rocks'
+    fill_in 'Code', with: '123456'
+    click_button 'Create New Program'
+    expect(page).to have_content("Title can't be blank")
+  end
+
+  it 'cannot create a program without a title' do
+    fill_in 'Title', with: 'TCI'
+    fill_in 'Code', with: '123456'
+    click_button 'Create New Program'
+    expect(page).to have_content("Subtitle can't be blank")
   end
 end

@@ -14,7 +14,11 @@ class ProgramsController < ApplicationController
 
   def create
     @program = Program.create(program_params)
-    redirect_to root_path
+    if @program.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
