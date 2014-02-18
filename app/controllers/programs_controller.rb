@@ -5,7 +5,7 @@ class ProgramsController < ApplicationController
     @programs = Program.all
   end
 
-  def show #handle errors
+  def show
   end
 
   def new
@@ -22,7 +22,7 @@ class ProgramsController < ApplicationController
     end
   end
 
-  def edit #handle errors
+  def edit
   end
 
   def update
