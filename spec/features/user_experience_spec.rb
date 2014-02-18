@@ -34,12 +34,14 @@ describe 'A user visiting the show page', js: true do
     visit program_path(program)
     click_link('Edit Program')
     expect(page).to have_content('Update Program')
+   
   end
 
   it 'can delete current program' do
     visit program_path(program)
     click_link('Delete Program')
     expect(page).to_not have_content('TCI')
+    expect(page).to have_content('Program destroyed')
   end
 end
 
@@ -56,6 +58,7 @@ describe 'A user visiting the new page', js: true do
 
     expect(page).to have_content('List of All Programs')
     expect(page).to have_content('TCI')
+    expect(page).to have_content('Program created successfully')
   end
 
   it 'cannot create a program with an incorrect code' do
@@ -90,6 +93,7 @@ describe 'A user visiting the edit page' do
     fill_in 'Title', with: 'TeachTCI'
     click_button('Submit')
     expect(page).to have_content("TeachTCI")
+    expect(page).to have_content('Program updated successfully')
   end
 
   it "cannot update a program without a title" do

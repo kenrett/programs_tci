@@ -15,9 +15,10 @@ class ProgramsController < ApplicationController
   def create
     @program = Program.create(program_params)
     if @program.save
+      flash[:notice] = 'Program created successfully'
       redirect_to root_path
     else
-      render :new, notice: 'Program created successfully'
+      render :new 
     end
   end
 
@@ -26,9 +27,10 @@ class ProgramsController < ApplicationController
 
   def update
     if @program.update_attributes(program_params) #handle errors
+      flash[:notice] = 'Program updated successfully'
       redirect_to @program
     else
-      render :edit, notice: 'Program updated successfully'
+      render :edit 
     end
   end
 
